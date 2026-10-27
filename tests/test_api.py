@@ -1,7 +1,6 @@
 import allure
 import pytest
 
-
 @allure.title("Создание уникального пользователя")
 @allure.description("Регистрируем нового пользователя, ожидаем успешный ответ 200/201")
 def test_create_unique_user(base_url, unique_user_data):
@@ -50,7 +49,7 @@ def test_login_wrong_password(base_url, registered_user):
 @allure.title("Создание заказа с авторизацией и ингредиентами")
 @allure.description("Авторизованный пользователь создаёт заказ с набором ингредиентов")
 def test_create_order_authorized_with_ingredients(base_url, auth_token):
-    ingredients_hash = ["6c7f6e544a9856bc7f609e6199019a8058c9a690"]  # пример хеша из документации
+    ingredients_hash = ["6c7f6e544a9856bc7f609e6199019a8058c9a690"] 
     resp = requests.post(
         f"{base_url}/orders",
         headers={"authorization": f"Bearer {auth_token}"},
